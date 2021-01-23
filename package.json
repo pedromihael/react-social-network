@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/prop-types": "^15.7.3",
     "axios": "^0.18.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
+    "react-icons": "^4.1.0",
     "react-scripts": "2.1.8",
     "styled-components": "^5.2.1",
     "typesafe-actions": "^3.2.1",

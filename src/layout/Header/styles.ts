@@ -5,12 +5,19 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100vw;
-  height: 10vh;
-  background: ${(props) => props.theme.colors.lightBackground};
+  background: ${props => props.theme.colors.lightBackground};
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.12);
+  height: 15vh;
 
   > h1 {
-    color: ${(props) => props.theme.colors.primary};
+    color: ${props => props.theme.colors.primary};
     font-size: 60px;
     font-family: 'Bebas Neue', cursive;
+    font-weight: 400;
+    padding: 10px 40px;
+  }
+
+  > div {
+    height: 100%;
   }
 `;
