@@ -6,5 +6,11 @@ export const Container = styled.div`
   justify-content: space-between;
   width: 100vw;
   height: 10vh;
-  background: ${(props) => (props.theme.title === 'light' ? props.theme.colors.white : props.theme.colors.darkGrey)};
+  background: ${(props) => props.theme.colors.lightBackground};
+
+  > h1 {
+    color: ${(props) => props.theme.colors.primary};
+    font-size: 60px;
+    font-family: 'Bebas Neue', cursive;
+  }
 `;

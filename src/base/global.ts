@@ -14,9 +14,9 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${(props) => props.theme.colors.iceWhite};
-    color: ${(props) => props.theme.colors.darkBlue};
-    font-family: 'Inter', sans-serif;
+    background: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.color};
+    font-family: 'Oxygen', sans-serif;
     font-size: 21px;
     font-weight: 300;
     overflow-x: hidden;

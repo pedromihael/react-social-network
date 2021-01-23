@@ -19,7 +19,6 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-
       <Container>
         <GlobalTheme />
         <Header title="MySocial" />

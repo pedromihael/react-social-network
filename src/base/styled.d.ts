@@ -9,6 +9,7 @@ declare module 'styled-components' {
       background: string;
       lightBackground: string;
       color: string;
+      alterColor: string;
     };
   }
 }

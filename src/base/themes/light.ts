@@ -6,5 +6,6 @@ export default {
     background: '#FBFBFB',
     lightBackground: '#FFFFFF',
     color: '#495867',
+    alterColor: '#BDBDBD',
   },
 };
