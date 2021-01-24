@@ -1,5 +1,6 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useContext, useRef, useState } from 'react';
 import { MdSearch } from 'react-icons/md'
+import { FriendsContext } from '../../../state/contexts/FriendsContext';
 import { Container } from './styles';
 
 interface Props {
@@ -9,12 +10,14 @@ interface Props {
 const Search: React.FC<Props> = ({ text }) => {
   const inputRef = useRef(null);
   const [itemToSearch, setItemToSearch] = useState('');
+  const friendsContext = useContext(FriendsContext);
 
   const handleSearch = useCallback((e) => {
     e.preventDefault();
     setItemToSearch(e.target.value);
 
-    // usar context provider aqui chamar uma funcao que faz a pesquisa do user
+    friendsContext.setSearched(e.target.value);
+    console.log(friendsContext.searchedUser)
   }, []);
 
   return (

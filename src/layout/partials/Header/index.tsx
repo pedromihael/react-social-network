@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdNotifications } from 'react-icons/md'
-import { Search, Switch } from '../../modules/components'
+import { Search, Switch } from '../../../modules/components'
 import { Container } from './styles';
 
 

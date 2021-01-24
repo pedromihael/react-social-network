@@ -14,6 +14,8 @@ interface IContextProps {
     getUsersByName(name: string): User[] | [];
     loggedUser: User | any;
     setLoggedUser(name: string): void;
+    searchedUser: string;
+    setSearched: (name: string) => void;
 }
 
 export const FriendsContext = createContext({} as IContextProps);
@@ -22,6 +24,7 @@ export const FriendsContext = createContext({} as IContextProps);
 const FriendsProvider: React.FC<Props> = ({ children }) => {
     const [usersToDisplay, setUsersToDisplay] = useState(users);
     const [logged, setLogged] = useState('');
+    const [searchedUser, setSearchedUser] = useState('');
 
     const getLoggedUser = (): User | any => {
         const result = users.find(user => user.name === logged);
@@ -47,11 +50,16 @@ const FriendsProvider: React.FC<Props> = ({ children }) => {
     }
 
     const getUsersByName = (userName: string): User[] | any[] => {
+        // TODO: trocar por consulta na API
         const foundUsers = users.filter(user => user.name.match(userName));
         const friends = foundUsers.length ? foundUsers as User[] : [];
         setUsersToDisplay(friends);
 
         return friends;
+    }
+
+    const setSearched = (name: string) => {
+        setSearchedUser(name);
     }
 
     return (
@@ -62,6 +70,8 @@ const FriendsProvider: React.FC<Props> = ({ children }) => {
             getUsersByName,
             loggedUser: getLoggedUser(),
             setLoggedUser,
+            searchedUser,
+            setSearched,
         }}>
             {children}
         </FriendsContext.Provider>
