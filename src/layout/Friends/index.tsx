@@ -1,30 +1,18 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { Card } from '../../modules/components'
 import AllUsersButton from '../../modules/components/AllUsersButton';
 import { Container } from './styles';
 
 import users from '../../mock';
+import { User } from '../../modules/types/User';
+import { FriendsContext } from '../../state/contexts/FriendsContext';
 
 interface Props {
   user: User;
 }
-type User = {
-  _id: string;
-  index: number;
-  picture: string;
-  age: number;
-  eyeColor: string;
-  name: string;
-  company: string;
-  email: string;
-  phone: string;
-  greeting: string;
-  friends: User[];
-}
 
 const Friends: React.FC<Props> = ({ user }) => {
-
-  const [usersToDisplay, setUsersToDisplay] = useState(user.friends);
+  const [usersToDisplay, setUsersToDisplay] = useState([] as User[]);
   const [isAllUsersDisplayed, setIsAllUsersDisplayed] = useState(false);
 
   const handleUsersDisplayed = useCallback(() => {
@@ -38,9 +26,11 @@ const Friends: React.FC<Props> = ({ user }) => {
 
   }, [isAllUsersDisplayed]);
 
+  const friendsContext = useContext(FriendsContext);
+
   useEffect(() => {
-    setUsersToDisplay(user.friends);
-  }, []);
+    setUsersToDisplay(friendsContext.getFriends(user.name));
+  }, [user]);
 
   return (
     <Container>
@@ -49,7 +39,7 @@ const Friends: React.FC<Props> = ({ user }) => {
         <AllUsersButton onClick={handleUsersDisplayed} isAllUsersDisplayed={isAllUsersDisplayed} />
       </header>
       <main>
-        {usersToDisplay.map((friend, index) => (
+        {usersToDisplay.map((friend: User, index: number) => (
           <Card
             key={index}
             name={friend.name}
