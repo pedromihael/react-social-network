@@ -4,7 +4,7 @@ import { ThemeProvider, DefaultTheme } from 'styled-components';
 import { usePersistedState } from './state/hooks/usePersistedState';
 import { light, dark } from './themes';
 import GlobalTheme from './base/global'
-import { Container } from './styles'
+import { Container } from './App.styles'
 import { Header, Friends, Footer } from './layout'
 import { Greeting } from './modules/components'
 
