@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/prop-types": "^15.7.3",
+    "awesome-typescript-loader": "^5.2.1",
     "axios": "^0.18.0",
     "polished": "^4.0.5",
     "prop-types": "^15.7.2",
@@ -47,6 +48,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "ts-loader": "^8.0.14"
   }
 }

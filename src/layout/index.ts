@@ -1,3 +1,4 @@
 import Header from './Header';
+import Friends from './Friends';
 
-export { Header };
+export { Header, Friends };

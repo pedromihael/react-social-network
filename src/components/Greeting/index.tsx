@@ -2,12 +2,16 @@ import React from 'react';
 import { FaHandPeace } from 'react-icons/fa';
 import { Container } from './styles';
 
-const Greeting: React.FC = () => {
+interface Props {
+  text: string;
+}
+
+const Greeting: React.FC<Props> = ({ text }) => {
   return (
     <Container>
       <FaHandPeace size="1.6rem" />
       <span>
-        Hello, Pedro! You have 7 unread messages.
+        {text}
       </span>
     </Container>
   );
