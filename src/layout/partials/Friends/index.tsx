@@ -34,13 +34,16 @@ const Friends: React.FC<Props> = ({ user, searched }) => {
     setIsAllUsersDisplayed(!isAllUsersDisplayed);
   }, [isAllUsersDisplayed]);
 
-  const { getFriends, getUsersByName } = useContext(FriendsContext);
+  const { getFriends, getUsersByName, getFriendsByName } = useContext(FriendsContext);
 
   useEffect(() => {
     setSearchedUser(searched);
 
     const foundUsers = getUsersByName(searched);
     setFoundUsersSearched(foundUsers as User[]);
+
+    const foundOnFriends = getFriendsByName('Dotson Jennings', searched);
+    setUsersToDisplay(foundOnFriends);
   }, [searched]);
 
   useEffect(() => {
@@ -74,7 +77,7 @@ const Friends: React.FC<Props> = ({ user, searched }) => {
         <Container>
 
           <div className="other-users-header">
-            <h3>Others users</h3>
+            <h3>All users</h3>
           </div>
           <div className="other-users-content">
             {foundUsersSearched.map((friend: User, index: number) => (
