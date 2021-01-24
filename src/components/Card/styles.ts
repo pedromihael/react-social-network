@@ -6,6 +6,7 @@ export const Container = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.12);
   display: grid;
   grid-template-rows: 1fr 0.7fr;
+  background: ${props => props.theme.colors.lightBackground};
 
   .picture {
     width: 100%;
@@ -41,6 +42,12 @@ export const Container = styled.div`
       padding-left: 5px;
       font-size: 1rem;
       margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .user {
+      font-size: 1rem;
     }
   }
 `;

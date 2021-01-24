@@ -27,8 +27,9 @@ const Friends: React.FC<Props> = ({ user }) => {
         <h3>Your friends</h3>
       </header>
       <main>
-        {user.friends.map(friend => (
+        {user.friends.map((friend, index) => (
           <Card
+            key={index}
             name={friend.name}
             age={friend.age}
             company={friend.company}

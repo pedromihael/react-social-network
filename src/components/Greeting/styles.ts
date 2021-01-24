@@ -6,6 +6,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
+  padding: 10vh 0;
 
   svg {
     path {
@@ -18,7 +19,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: 700px) {
-    padding: 0 20px 0 30px;
+    padding: 0 5vh 5vh;
     display: flex;
     flex-direction: column;
     gap: 10px;
