@@ -21,7 +21,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Container>
         <GlobalTheme />
-        <Header title="MySocial" />
+        <Header text="MySocial" toggleTheme={handleThemeSwitching} />
         {/* <Greeting user={"Patti Mckenzie"} /> */}
         {/* <Friends user={"Patti Mckenzie"} /> */}
       </Container >

@@ -19,5 +19,14 @@ export const Container = styled.div`
 
   > div {
     height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    svg {
+      path {
+        fill: ${props => props.theme.colors.alterColor};
+      }
+    }
   }
 `;
