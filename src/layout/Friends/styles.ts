@@ -11,6 +11,8 @@ export const Container = styled.div`
   header {
     width: 100%;
     border-bottom: 1px solid ${props => props.theme.colors.color};
+    display: flex;
+    justify-content: space-between;
 
     h3 {
       font-family: 'Bebas Neue', cursive;
