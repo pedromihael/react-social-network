@@ -5,7 +5,7 @@ import { usePersistedState } from './hooks/usePersistedState';
 import { light, dark } from './base/themes';
 import GlobalTheme from './base/global'
 import { Container } from './styles'
-import { Header, Friends } from './layout'
+import { Header, Friends, Footer } from './layout'
 import { Greeting } from './components'
 
 import users from './mock';
@@ -41,6 +41,7 @@ function App() {
         <Header text="MySocial" toggleTheme={handleThemeSwitching} />
         <Greeting text={user.greeting} />
         <Friends user={user} />
+        <Footer />
       </Container >
     </ThemeProvider >
 
