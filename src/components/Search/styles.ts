@@ -39,4 +39,20 @@ export const Container = styled.div`
       }
     }
   }
+
+  @media (max-width: 700px) {
+    form {
+      width: auto;
+      border-left: none;
+
+      fieldset {
+        padding-left: 0;
+      }
+    }
+
+    input {
+      display: none;
+      padding: 0;
+    }
+  }
 `;

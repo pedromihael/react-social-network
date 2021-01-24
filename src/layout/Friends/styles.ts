@@ -25,4 +25,12 @@ export const Container = styled.div`
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
   }
+
+  @media (max-width: 700px) {
+    padding: 0 40px;
+
+    main {
+      grid-template-columns: 1fr;
+    }
+  }
 `;
