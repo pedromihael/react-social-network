@@ -43,11 +43,24 @@ export const Container = styled.div`
       font-size: 1rem;
       margin-bottom: 10px;
     }
+
+    button {
+      display: none;
+    }
   }
 
   @media (max-width: 700px) {
-    .user {
-      font-size: 1rem;
+    height: auto;
+
+    .content {
+      .user {
+        font-size: 1rem;
+      }
+
+      button {
+        display: block;
+        margin-top: 20px;
+      }
     }
   }
 `;

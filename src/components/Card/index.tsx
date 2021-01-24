@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdPerson, MdWork, MdCall } from 'react-icons/md'
+import Button from '../Button';
 import { Container } from './styles';
 
 interface Props {
@@ -29,6 +30,7 @@ const Card: React.FC<Props> = ({ name, age, company, phone, picture }) => {
           <MdCall size="1rem" />
           <span>{phone}</span>
         </div>
+        <Button>SEE MORE</Button>
       </div>
     </Container>
   );
