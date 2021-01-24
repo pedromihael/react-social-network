@@ -24,6 +24,7 @@ export const Container = styled.div`
     position: relative;
     transition: transform 1s;
     overflow: hidden;
+    cursor: pointer;
 
     img {
       width: 100%;
@@ -49,8 +50,14 @@ export const Container = styled.div`
       top: 0;
       height: 100%;
       width: 100%;
-      background: ${props => props.theme.colors.primary};
-      color: ${props => props.theme.colors.background};
+      background: ${props =>
+        props.theme.title === 'light'
+          ? props.theme.colors.primary
+          : props.theme.colors.lightBackground};
+      color: ${props =>
+        props.theme.title === 'light'
+          ? props.theme.colors.background
+          : props.theme.colors.color};
       font-weight: 700;
       transform: none;
       animation-name: ${fadeInOpacity};
