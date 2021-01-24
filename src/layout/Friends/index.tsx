@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Card } from '../../components'
-import AllUsersButton from '../../components/AllUsersButton';
+import { Card } from '../../modules/components'
+import AllUsersButton from '../../modules/components/AllUsersButton';
 import { Container } from './styles';
 
 import users from '../../mock';

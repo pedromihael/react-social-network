@@ -1,12 +1,12 @@
 import React from 'react'
 
 import { ThemeProvider, DefaultTheme } from 'styled-components';
-import { usePersistedState } from './hooks/usePersistedState';
-import { light, dark } from './base/themes';
+import { usePersistedState } from './state/hooks/usePersistedState';
+import { light, dark } from './themes';
 import GlobalTheme from './base/global'
 import { Container } from './styles'
 import { Header, Friends, Footer } from './layout'
-import { Greeting } from './components'
+import { Greeting } from './modules/components'
 
 import users from './mock';
 
