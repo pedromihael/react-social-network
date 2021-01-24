@@ -16,6 +16,7 @@ const Card: React.FC<Props> = ({ name, age, company, phone, picture }) => {
     <Container>
       <div className="picture" >
         <img src={picture} />
+        <div className="cover">SEE MORE</div>
       </div>
       <div className="content" >
         <div className="user">

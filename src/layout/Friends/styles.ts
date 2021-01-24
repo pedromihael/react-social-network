@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   gap: 20px;
   width: 100%;
   padding: 0 120px;
