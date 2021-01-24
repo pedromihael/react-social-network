@@ -62,7 +62,7 @@ export const Container = styled.div`
       transform: none;
       animation-name: ${fadeInOpacity};
       animation-iteration-count: 1;
-      animation-timing-function: ease-in;
+      animation-timing-function: ease-in-out;
       animation-duration: 0.25s;
     }
   }
