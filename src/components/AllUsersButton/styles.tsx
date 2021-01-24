@@ -6,4 +6,5 @@ export const Container = styled.button`
     background: none;
     padding: 10px 0 10px 20px;
     cursor: pointer;
+    color: ${props => props.theme.colors.color}
 `;
