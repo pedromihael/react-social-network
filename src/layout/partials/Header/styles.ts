@@ -69,7 +69,7 @@ export const Container = styled.div`
     margin-bottom: 60px;
 
     > div {
-      > svg {
+      .notifications-icon {
         margin-right: 20px;
       }
 
