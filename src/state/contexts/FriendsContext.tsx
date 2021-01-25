@@ -14,8 +14,6 @@ interface IContextProps {
   getAllUsers(): User[];
   getFriends(userName: string): User[] | [];
   getUsersByName(name: string): User[] | [];
-  loggedUser: User | any;
-  setLoggedUser(name: string): void;
   searchedUser: string;
   setSearched: (name: string) => void;
   getFriendsByName: (userName: string, searched: string) => User[] | [];
@@ -26,31 +24,15 @@ export const FriendsContext = createContext({} as IContextProps);
 
 const FriendsProvider: React.FC<Props> = ({ children }) => {
   const allUsersQuery = useQuery(ALL_USERS);
-  const usersByNameQuery = useQuery(USERS_BY_NAME, {
-    variables: { name: "Cecilia" }
-  });
 
   const allUsers = allUsersQuery.data;
-  const usersByName = usersByNameQuery.data;
 
   const [usersToDisplay, setUsersToDisplay] = useState(users);
-  const [logged, setLogged] = useState('');
   const [searchedUser, setSearchedUser] = useState('');
 
   const fetchUsers = useMemo(() => {
     return allUsers ? allUsers.list as User[] : users as User[]
   }, [allUsers]);
-
-  const fetchUsersByName = useMemo(() => {
-    return usersByName ? usersByName.list as User[] : users as User[]
-  }, [usersByName]);
-
-  const getLoggedUser = (): User | any => {
-    const result = fetchUsers.find(user => user.name === logged);
-    return result ? result as User : undefined;
-  }
-
-  const setLoggedUser = (name: string): void => setLogged(name);
 
   const getAllUsers = (): User[] => {
     setUsersToDisplay(fetchUsers);
@@ -69,8 +51,11 @@ const FriendsProvider: React.FC<Props> = ({ children }) => {
   }
 
   const getUsersByName = (userName: string): User[] | any[] => {
-    // TODO: trocar por consulta na API
-    let found = fetchUsers.filter(thisUser => thisUser.name === userName) as User[];
+    const nameLength = userName.length;
+    const considerableSubstringLength = Math.ceil(nameLength * 0.6);
+    const considerableSubstring = userName.slice(0, considerableSubstringLength);
+
+    let found = fetchUsers.filter((user) => new RegExp(`${considerableSubstring}`, 'gi').test(user.name)) as User[];
 
     if (!found.length) {
       for (const user of fetchUsers) {
@@ -89,9 +74,13 @@ const FriendsProvider: React.FC<Props> = ({ children }) => {
   }
 
   const getFriendsByName = (userName: string, searched: string): User[] | [] => {
-    // TODO: trocar por consulta na API
     const user = fetchUsers.find(thisUser => thisUser.name === userName) as User;
-    const foundUsers = user.friends.filter(user => user.name.match(searched)) as User[];
+
+    const nameLength = searched.length;
+    const considerableSubstringLength = Math.ceil(nameLength * 0.6);
+    const considerableSubstring = searched.slice(0, considerableSubstringLength);
+
+    const foundUsers = user.friends.filter((user) => new RegExp(`${considerableSubstring}`, 'gi').test(user.name)) as User[];
 
     const friends = foundUsers.length ? foundUsers as User[] : [];
 
@@ -124,8 +113,6 @@ const FriendsProvider: React.FC<Props> = ({ children }) => {
       getAllUsers,
       getFriends,
       getUsersByName,
-      loggedUser: getLoggedUser(),
-      setLoggedUser,
       searchedUser,
       setSearched,
       getFriendsByName,
