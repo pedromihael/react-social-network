@@ -42,7 +42,16 @@ const Card: React.FC<Props> = ({ user_id, name, age, company, phone, picture }) 
           <MdCall size="1rem" />
           <span>{phone}</span>
         </div>
-        <Button>SEE MORE</Button>
+        <Link
+          to={{
+            pathname: `/user/${name}`,
+            state: {
+              user_id
+            }
+          }}
+        >
+          <Button>SEE MORE</Button>
+        </Link>
       </div>
     </Container >
   );

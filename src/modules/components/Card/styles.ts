@@ -94,8 +94,10 @@ export const Container = styled.div`
       margin-bottom: 10px;
     }
 
-    button {
-      display: none;
+    a {
+      button {
+        display: none;
+      }
     }
   }
 
@@ -103,9 +105,15 @@ export const Container = styled.div`
     height: auto;
 
     .content {
-      button {
-        display: block;
-        margin-top: 20px;
+      > a {
+        width: 100%;
+        text-decoration: none;
+
+        button {
+          display: block;
+          margin-top: 20px;
+          width: 100%;
+        }
       }
     }
   }
