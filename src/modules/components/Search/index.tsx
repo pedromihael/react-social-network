@@ -5,9 +5,10 @@ import { Container } from './styles';
 
 interface Props {
   text: string;
+  className?: string;
 }
 
-const Search: React.FC<Props> = ({ text }) => {
+const Search: React.FC<Props> = ({ text, className }) => {
   const inputRef = useRef(null);
   const [itemToSearch, setItemToSearch] = useState('');
   const friendsContext = useContext(FriendsContext);
@@ -21,7 +22,7 @@ const Search: React.FC<Props> = ({ text }) => {
   }, []);
 
   return (
-    <Container>
+    <Container className={className}>
       <form onChange={handleSearch} role="search">
         <fieldset>
           <MdSearch size="2rem" />

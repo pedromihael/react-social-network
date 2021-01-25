@@ -11,6 +11,8 @@ export const Container = styled.div`
 
   > a {
     text-decoration: none;
+    cursor: pointer;
+
     h1 {
       color: ${props => props.theme.colors.primary};
       font-size: 60px;
@@ -38,6 +40,25 @@ export const Container = styled.div`
       h1 {
         font-size: 45px;
         padding: 10px 20px;
+      }
+    }
+
+    position: relative;
+    margin-bottom: 60px;
+
+    > div {
+      svg {
+        margin-right: 20px;
+      }
+
+      .search {
+        position: absolute;
+        bottom: -80%;
+        left: 0;
+
+        input {
+          height: 50%;
+        }
       }
     }
   }

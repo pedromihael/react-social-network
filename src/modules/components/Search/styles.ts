@@ -49,10 +49,5 @@ export const Container = styled.div`
         padding-left: 0;
       }
     }
-
-    input {
-      display: none;
-      padding: 0;
-    }
   }
 `;

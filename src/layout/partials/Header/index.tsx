@@ -19,7 +19,7 @@ const Header: React.FC<Props> = ({ text, toggleTheme }) => {
       <div>
         <Switch toggleTheme={toggleTheme} />
         <MdNotifications size="2rem" />
-        <Search text="Searching for..." />
+        <Search className="search" text="Searching for..." />
       </div>
     </Container>
   );
