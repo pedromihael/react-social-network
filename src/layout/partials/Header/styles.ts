@@ -9,12 +9,15 @@ export const Container = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.12);
   height: 15vh;
 
-  > h1 {
-    color: ${props => props.theme.colors.primary};
-    font-size: 60px;
-    font-family: 'Bebas Neue', cursive;
-    font-weight: 400;
-    padding: 10px 40px;
+  > a {
+    text-decoration: none;
+    h1 {
+      color: ${props => props.theme.colors.primary};
+      font-size: 60px;
+      font-family: 'Bebas Neue', cursive;
+      font-weight: 400;
+      padding: 10px 40px;
+    }
   }
 
   > div {
@@ -31,8 +34,11 @@ export const Container = styled.div`
   }
 
   @media (max-width: 700px) {
-    > h1 {
-      font-size: 45px;
+    > a {
+      h1 {
+        font-size: 45px;
+        padding: 10px 20px;
+      }
     }
   }
 `;
