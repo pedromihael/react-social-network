@@ -28,6 +28,28 @@ export const Container = styled.div`
     align-items: center;
     gap: 1rem;
 
+    .notifications-icon {
+      position: relative;
+      cursor: pointer;
+
+      .badge {
+        position: absolute;
+        font-size: 0.7rem;
+        font-weight: 700;
+        background: ${props =>
+          props.theme.title === 'light'
+            ? props.theme.colors.secundary
+            : props.theme.colors.primary};
+        border-radius: 100%;
+        height: 1rem;
+        width: 1rem;
+        text-align: center;
+        color: ${props => props.theme.colors.background};
+        top: 0;
+        right: 0;
+      }
+    }
+
     svg {
       path {
         fill: ${props => props.theme.colors.alterColor};
