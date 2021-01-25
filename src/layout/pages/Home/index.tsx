@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import { Header, Friends, Footer } from '../../../layout/partials';
+import { Header, Friends, Footer } from '../../partials';
 import { Greeting } from '../../../modules/components';
 
 import users from '../../../mock';

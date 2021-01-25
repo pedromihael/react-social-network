@@ -1,12 +1,20 @@
 import React from 'react';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 import { light, dark } from './themes';
 import GlobalTheme from './base/global';
 import { usePersistedState } from './state/hooks/usePersistedState';
 
 import FriendsProvider from './state/contexts/FriendsContext';
-import Home from './layout/pages/Home/Home';
+import Home from './layout/pages/Home';
+import UserPage from './layout/pages/UserPage';
 
 function App() {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', light);
@@ -19,7 +27,16 @@ function App() {
     <ThemeProvider theme={theme}>
       <FriendsProvider>
         <GlobalTheme />
-        <Home handleThemeSwitching={handleThemeSwitching} />
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home handleThemeSwitching={handleThemeSwitching} />
+            </Route>
+            <Route path="/user/:name">
+              <UserPage handleThemeSwitching={handleThemeSwitching} />
+            </Route>
+          </Switch>
+        </Router>
 
       </FriendsProvider>
     </ThemeProvider>

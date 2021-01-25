@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { MdPerson, MdWork, MdCall } from 'react-icons/md'
 import Button from '../Button';
+import { Link } from 'react-router-dom';
 import { Container } from './styles';
 
 interface Props {
+  user_id: any;
   name: string;
   age: number;
   company: string;
@@ -11,13 +13,22 @@ interface Props {
   picture: string;
 }
 
-const Card: React.FC<Props> = ({ name, age, company, phone, picture }) => {
+const Card: React.FC<Props> = ({ user_id, name, age, company, phone, picture }) => {
   return (
     <Container>
-      <div className="picture" >
-        <img src={picture} />
-        <div className="cover">SEE MORE</div>
-      </div>
+      <Link
+        to={{
+          pathname: `/user/${name}`,
+          state: {
+            user_id
+          }
+        }}
+      >
+        <div className="picture" >
+          <img src={picture} />
+          <div className="cover">SEE MORE</div>
+        </div>
+      </Link>
       <div className="content" >
         <div className="user">
           <MdPerson size="1.6rem" />
@@ -33,7 +44,7 @@ const Card: React.FC<Props> = ({ name, age, company, phone, picture }) => {
         </div>
         <Button>SEE MORE</Button>
       </div>
-    </Container>
+    </Container >
   );
 }
 

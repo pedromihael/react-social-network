@@ -64,6 +64,7 @@ const Friends: React.FC<Props> = ({ user, searched }) => {
           {usersToDisplay.map((friend: User, index: number) => (
             <Card
               key={index}
+              user_id={friend._id}
               name={friend.name}
               age={friend.age}
               company={friend.company}
@@ -83,6 +84,7 @@ const Friends: React.FC<Props> = ({ user, searched }) => {
             {foundUsersSearched.map((friend: User, index: number) => (
               <Card
                 key={index}
+                user_id={friend._id}
                 name={friend.name}
                 age={friend.age}
                 company={friend.company}
