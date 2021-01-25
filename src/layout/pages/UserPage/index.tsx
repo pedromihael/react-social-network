@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Header, Friends, Footer } from '../../partials';
 import { UserInfo } from '../../../modules/components';
 import { User } from '../../../modules/types/User';
 import { FriendsContext } from '../../../state/contexts/FriendsContext';
 import { Container } from './styles';
-import { string } from 'prop-types';
 
 interface Props {
   handleThemeSwitching(): void,
@@ -33,7 +32,7 @@ const UserPage: React.FC<Props> = ({ handleThemeSwitching }) => {
     <Container>
       <Header text="MySocial" toggleTheme={handleThemeSwitching} />
       <UserInfo user={user} />
-      <Friends user={user} searched={searchedUser} />
+      <Friends user={user} searched={searchedUser} friendsText="Their friends" />
       <Footer />
     </Container>
   );

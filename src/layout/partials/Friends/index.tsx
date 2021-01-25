@@ -16,9 +16,10 @@ import { FriendsContext } from '../../../state/contexts/FriendsContext';
 interface Props {
   user: User;
   searched: string;
+  friendsText?: string;
 }
 
-const Friends: React.FC<Props> = ({ user, searched }) => {
+const Friends: React.FC<Props> = ({ user, searched, friendsText }) => {
   const [usersToDisplay, setUsersToDisplay] = useState([] as User[]);
   const [isAllUsersDisplayed, setIsAllUsersDisplayed] = useState(false);
   const [searchedUser, setSearchedUser] = useState(searched);
@@ -54,7 +55,7 @@ const Friends: React.FC<Props> = ({ user, searched }) => {
     <>
       <Container>
         <header>
-          <h3>Your friends</h3>
+          <h3>{friendsText || 'Your friends'}</h3>
           <AllUsersButton
             onClick={handleUsersDisplayed}
             isAllUsersDisplayed={isAllUsersDisplayed}
