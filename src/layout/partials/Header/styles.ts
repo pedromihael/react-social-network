@@ -47,7 +47,7 @@ export const Container = styled.div`
     margin-bottom: 60px;
 
     > div {
-      svg {
+      > svg {
         margin-right: 20px;
       }
 
